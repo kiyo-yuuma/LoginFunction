@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet" >
+  <style>
+    .hidden-button {
+      color: white;
+      background-color: white;
+      border: white;
+      display: inline-block;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="text-align: center">
+    <h1 class="my-3">メイン</h1>
+    <hr class="mb-5">
+    <p>
+      <label>ユーザ名：</label>
+      <label th:text="${user.userName}">ユーザ名</label>
+    </p>
+    <form class="w-50 mx-auto mb-2" th:action="@{/setting}" method="post">
+      <button type="submit" class="btn btn-outline-primary">ユーザ設定</button>
+    </form>
+    <form class="w-50 mx-auto" th:action="@{/logout}" method="post">
+      <button type="submit" class="btn btn-outline-primary">ログアウト</button>
+    </form>
+  </div>
+  <form th:action="@{/hidden}" method="post">
+    <button class="hidden-button" type="submit">*</button>
+  </form>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

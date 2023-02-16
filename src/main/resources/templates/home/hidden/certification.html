@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Certification</title>
+    <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+    <h1 class="my-3">認証画面</h1>
+    <hr class="mb-5">
+    <form class="w-25 mx-auto mb-4" th:action="@{/certify}" method="post">
+        <div class="form-group mb-2">
+            <label class="control-label mb-1">Passwordを入力してください</label>
+            <div class="col-md-8" style="margin: auto">
+                <input name="pass" type="password" class="form-control">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">ログイン</button>
+    </form>
+    <form class="w-50 mx-auto" th:action="@{/main}" method="post">
+        <button type="submit" class="btn btn-outline-primary">戻る</button>
+    </form>
+</div>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

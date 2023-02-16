@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Setting</title>
+  <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="container-fluid text-center">
+  <h1 class="my-3">ユーザ設定</h1>
+  <hr class="mb-5">
+  <form class="w-25 mx-auto mb-2" th:action="@{/settingCheck}" th:object="${settingUser}" method="post">
+    <div class="form-group mb-3">
+      <label class="control-label mb-1">ID : <span th:text="${user.id}"></span></label>
+      <div class="col-md-8 was-validated" style="margin: auto">
+        <input name="id" type="text" required class="form-control" placeholder="ID">
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <label class="control-label mb-1">Password : </label>
+      <label class="control-label mb-1" th:text="${user.password}">password</label>
+      <div class="col-md-8 was-validated" style="margin: auto">
+        <input name="password" type="text" required minlength="4" class="form-control" placeholder="password">
+      </div>
+    </div>
+    <div class="form-group mb-4">
+      <label class="control-label mb-1">UserName</label>
+      <label class="control-label mb-1" th:text="${user.userName}">userName</label>
+      <div class="col-md-8 was-validated" style="margin: auto">
+        <input name="userName" type="text" required class="form-control" placeholder="userName">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">確認</button>
+  </form>
+  <form class="w-50 mx-auto mb-4" th:action="@{/deleteCheck}" method="post">
+    <button type="submit" class="btn btn-outline-primary">ユーザ情報削除</button>
+  </form>
+  <form class="w-50 mx-auto" th:action="@{/main}" method="post">
+    <button type="submit" class="btn btn-outline-primary">戻る</button>
+  </form>
+</div>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

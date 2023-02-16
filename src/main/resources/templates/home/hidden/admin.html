@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Certification</title>
+  <link th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+  <h1 class="my-3">管理者画面</h1>
+  <hr class="mb-5">
+  <table class="mb-2 table table-striped" style="width: 400px; margin: auto">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">UserName</th>
+    </tr>
+    </thead>
+    <tbody th:each="user : ${userList}">
+    <td th:text="${user.getId()}"></td>
+    <td th:text="${user.getUserName()}"></td>
+    </tbody>
+  </table>
+  <form class="w-50 mx-auto" th:action="@{/main}" method="post">
+    <button type="submit" class="btn btn-outline-primary">メインに戻る</button>
+  </form>
+</div>
+<script th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
